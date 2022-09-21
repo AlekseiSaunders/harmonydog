@@ -35,6 +35,11 @@ const UserSchema = new mongoose.Schema({
   phone: {
     type: String,
   },
+  privileges: {
+    type: String,
+    default: 'user',
+    enum: ['user', 'admin', 'root'],
+  },
 
   // password: String,
   // passwordResetToken: String,
