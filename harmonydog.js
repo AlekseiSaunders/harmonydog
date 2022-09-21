@@ -4,7 +4,7 @@ const connectDB = require('./config/db');
 const morgan = require('morgan');
 const { engine } = require('express-handlebars');
 const passport = require('passport');
-const session = require('session');
+const session = require('express-session');
 const methodOverride = require('method-override');
 const MongoStore = require('connect-mongo');
 
@@ -14,8 +14,7 @@ const app = express();
 
 // link route files for use below
 const mainRoutes = require('./routes/main');
-const authRoutes = require('./routes/auth');
-const { type } = require('os');
+
 
 // Use body parser middleware to get data from request.body
 app.use(express.urlencoded({ extended: false }));
