@@ -7,6 +7,7 @@ const passport = require('passport');
 const session = require('express-session');
 const methodOverride = require('method-override');
 const MongoStore = require('connect-mongo');
+const flash = require('express-flash');
 
 const path = require('path');
 const PORT = process.env.PORT || 1066;
@@ -14,7 +15,6 @@ const app = express();
 
 // link route files for use below
 const mainRoutes = require('./routes/main');
-
 
 // Use body parser middleware to get data from request.body
 app.use(express.urlencoded({ extended: false }));
@@ -79,6 +79,9 @@ app.use(passport.session());
 
 // Declare static folder to serve static assets
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Enable flash message use for errors, information, etc
+app.use(flash());
 
 // Declare base routes for use
 app.use('/', mainRoutes);
