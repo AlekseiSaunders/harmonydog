@@ -1,19 +1,16 @@
+const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-  googleId: {
-    type: String,
-    required: true,
-  },
-  displayName: {
-    type: String,
-    required: true,
-  },
   firstName: {
     type: String,
     required: true,
   },
   lastName: {
+    type: String,
+    required: true,
+  },
+  userName: {
     type: String,
     required: true,
   },
@@ -40,14 +37,17 @@ const UserSchema = new mongoose.Schema({
     default: 'user',
     enum: ['user', 'admin', 'root'],
   },
-
-  // password: String,
-  // passwordResetToken: String,
-  // passwordResetExpires: Date,
-  // emailVerificationToken: String,
-  // emailVerified: Boolean,
-  // tokens: Array,
 });
+
+// Helper method for validating user's password
+UserSchema.methods.comparePassword = function comparePassword(
+  candidatePassword,
+  cb
+) {
+  bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
+    cb(err, isMatch);
+  });
+};
 
 // exporting the model from above. To be referenced elsewhere as 'User'
 module.exports = mongoose.model('User', UserSchema);
