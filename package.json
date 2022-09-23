@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/AlekseiSaunders/harmonydog#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cloudinary": "^1.32.0",
     "connect-mongo": "^4.6.0",
     "dotenv": "^16.0.2",
@@ -34,7 +35,8 @@
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
