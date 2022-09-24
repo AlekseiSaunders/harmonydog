@@ -20,6 +20,12 @@ main {
 .logo_text {
   margin-left: 50px;
 }
+.title__welcome {
+  font-size: 0.75em;
+}
+.class__link {
+  font-size: 0.75em;
+}
 .footer {
   text-align: center;
 }
