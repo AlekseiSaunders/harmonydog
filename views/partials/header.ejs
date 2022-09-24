@@ -1,0 +1,33 @@
+<nav class="light-blue lighten-1">
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo"
+      ><img class="logo_image" src="/images/harmony_Logo_trimmed.png" /><span
+        class="logo_text"
+        >Harmony Dog</span
+      >
+    </a>
+    <a href="#" data-target="mobile-demo" class="right sidenav-trigger"
+      ><i class="material-icons">Menu</i></a
+    >
+    <ul class="right hide-on-med-and-down">
+      <%if(user){%>
+      <li><a href="logout">Logout</a></li>
+      <%}else{%>
+      <li><a href="register">Register</a></li>
+      <li><a href="login">Login</a></li>
+      <%}%>
+      <li><a href="collapsible.html">Services</a></li>
+      <li><a href="mobile.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+<ul class="sidenav" id="mobile-demo">
+  <%if(user){%>
+  <li><a href="logout">Logout</a></li>
+  <%}else{%>
+  <li><a href="register">Register</a></li>
+  <li><a href="login">Login</a></li>
+  <%}%>
+  <li><a href="collapsible.html">Services</a></li>
+  <li><a href="mobile.html">About</a></li>
+</ul>
