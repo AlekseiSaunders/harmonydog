@@ -1,13 +1,14 @@
 const passport = require('passport');
 const validator = require('validator');
+const { deleteOne } = require('../models/User');
 const User = require('../models/User');
 
 exports.getRegister = (req, res) => {
-  res.render('register');
+  res.render('register', { user: req.user });
 };
 
 exports.getLogin = (req, res) => {
-  res.render('login', { layout: 'login' });
+  res.render('login', { user: req.user });
 };
 
 exports.postLogin = (req, res, next) => {
