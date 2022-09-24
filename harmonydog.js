@@ -2,7 +2,6 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const morgan = require('morgan');
-const { engine } = require('express-handlebars');
 const passport = require('passport');
 const session = require('express-session');
 const methodOverride = require('method-override');
@@ -46,21 +45,8 @@ if (process.env.NODE.ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// Handlebar helpers will go here when developed
-
-// Declare handlebars as app view engine
-// declare default Layout and extension name for handlebar files
-// will need to bring in handlebar helpers when they are ready
-app.engine(
-  '.hbs',
-  engine({
-    helpers: {},
-    defaultLayout: 'main',
-    extname: '.hbs',
-  })
-);
-
-app.set('view engine', '.hbs');
+// Set ejs as view engine for template rendering
+app.set('view engine', 'ejs');
 
 // Enable session middleware to allow session use (must be declared above passport middleware)
 // store session data in mongo database
