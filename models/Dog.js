@@ -7,6 +7,8 @@ const DogSchema = new mongoose.Schema({
   },
   gender: {
     type: String,
+    default: 'female',
+    enum: ['female', 'male'],
     required: true,
   },
   breed: {
@@ -35,12 +37,11 @@ const DogSchema = new mongoose.Schema({
   notes: {
     type: String,
   },
-  owner: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-    },
-  ],
+  owner: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
+	],
   medications: [
     {
       type: mongoose.Schema.Types.ObjectId,
