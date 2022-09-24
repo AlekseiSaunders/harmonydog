@@ -14,6 +14,7 @@ const app = express();
 
 // link route files for use below
 const mainRoutes = require('./routes/main');
+const dogRoutes = require('./routes/dogs');
 
 // Use body parser middleware to get data from request.body
 app.use(express.urlencoded({ extended: false }));
@@ -71,6 +72,7 @@ app.use(flash());
 
 // Declare base routes for use
 app.use('/', mainRoutes);
+app.use('/dog', dogRoutes);
 
 // Start server
 app.listen(
