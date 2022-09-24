@@ -3,8 +3,9 @@ const Dog = require('../models/Dog');
 
 exports.getProfile = async (req, res) => {
   try {
-    const dogs = await Dog.find({ user: req.user.id }).lean();
-    res.render('profile', { firstName: req.user.firstName, user: req.user });
+    const user = await User.find({ user: req.user.id });
+    const dogs = await Dog.find({ user: req.user.id });
+    res.render('profile', { user: req.user, dogs: dogs });
   } catch (err) {
     console.err(err);
   }
