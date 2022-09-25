@@ -1,31 +1,31 @@
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-main {
-  flex: 1 0 auto;
-}
-
 .brand-logo {
-  margin-left: 10px;
-}
-.logo_image {
-  position: absolute;
-  height: 60px;
-  top: 50%;
-  transform: translateY(-50%);
+  margin: 0px 10px;
 }
 .logo_text {
   margin-left: 50px;
 }
+.light-blue {
+  background-color: #29b6f6;
+}
 .title__welcome {
   font-size: 0.75em;
+}
+.carousel {
+  width: 50vw;
+}
+.carousel-item {
+  width: 50vw;
+}
+.carousel-inner > .carousel-item > img {
+  width: 100%;
+}
+.carousel-caption {
+  backdrop-filter: brightness(50%);
 }
 .class__link {
   font-size: 0.75em;
 }
 .footer {
+  margin-top: 90%;
   text-align: center;
 }
