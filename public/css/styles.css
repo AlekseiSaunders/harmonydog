@@ -22,6 +22,9 @@
 .carousel-caption {
   backdrop-filter: brightness(50%);
 }
+.badge {
+  font-size: 0.75rem;
+}
 .class__link {
   font-size: 0.75em;
 }
