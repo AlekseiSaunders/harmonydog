@@ -1,35 +1,54 @@
-<nav class="light-blue lighten-1">
-  <div class="nav-wrapper">
-    <a href="/" class="brand-logo"
-      ><img class="logo_image" src="/images/harmony_Logo_trimmed.png" /><span
-        class="logo_text"
-        >Harmony Dog</span
-      >
-    </a>
-    <a href="#" data-target="mobile-demo" class="right sidenav-trigger"
-      ><i class="material-icons">Menu</i></a
+<nav class="navbar navbar-expand-md navbar-light light-blue">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"
+      ><img
+        src="/images/harmony_Logo_trimmed.png"
+        width="50"
+        height="60"
+        class="d-inline-block align-center brand-logo"
+        alt=""
+      />Harmony Dog</a
     >
-    <ul class="right hide-on-med-and-down">
-      <%if(user){%>
-      <li><a href="profile">User Profile</a></li>
-      <li><a href="logout">Logout</a></li>
-      <%}else{%>
-      <li><a href="register">Register</a></li>
-      <li><a href="login">Login</a></li>
-      <%}%>
-      <li><a href="collapsible.html">Services</a></li>
-      <li><a href="mobile.html">About</a></li>
-    </ul>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-end">
+        <li class="nav-item active">
+          <a class="nav-link" href="/"
+            >Home<span class="sr-only">(current)</span></a
+          >
+        </li>
+        <%if(user){%>
+        <li class="nav-item">
+          <a class="nav-link" href="profile">User Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="logout">Logout</a>
+        </li>
+        <%}else{%>
+        <li class="nav-item">
+          <a class="nav-link" href="register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login">Login</a>
+        </li>
+        <%}%>
+        <li class="nav-item">
+          <a class="nav-link" href="about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services">Services</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
-<ul class="sidenav" id="mobile-demo">
-  <%if(user){%>
-  <li><a href="profile">User Profile</a></li>
-  <li><a href="logout">Logout</a></li>
-  <%}else{%>
-  <li><a href="register">Register</a></li>
-  <li><a href="login">Login</a></li>
-  <%}%>
-  <li><a href="collapsible.html">Services</a></li>
-  <li><a href="mobile.html">About</a></li>
-</ul>
