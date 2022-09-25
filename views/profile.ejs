@@ -5,94 +5,64 @@
   </head>
   <body>
     <header><%- include('partials/header') %></header>
-    <main class="container">
-      <h1>
-        Profile Page:
-        <span class="title__welcome"
-          >Welcome <%=user.firstName%> <%=user.lastName%></span
-        >
-      </h1>
-      <div class="row">
-        <% for(let i=0; i < dogs.length; i++){%>
-        <div class="col s12 m5">
-          <!-- dog profiles will go here when ready-->
-          <div class="card large sticky-action">
-            <div class="card-image waves-effect waves-block waves-light">
+    <main>
+      <div class="container">
+        <h1>
+          Profile Page:
+          <span class="title__welcome"
+            >Welcome <%=user.firstName%> <%=user.lastName%></span
+          >
+        </h1>
+
+        <div class="row">
+          <div class="card-deck">
+            <% for(let i=0; i < dogs.length; i++){%>
+
+            <!-- dog profiles will go here when ready-->
+            <div class="card" style="width: 18rem">
               <img
-                class="activator"
+                class="card-image-top"
                 src="<%= dogs[i].image %>"
                 alt="<%= dogs[i].name %>"
               />
-            </div>
-
-            <div class="card-content">
-              <span class="card-title activator"
-                ><%= dogs[i].name%> <%=user.lastName%><i
-                  class="material-icons right"
-                  >more_vert</i
-                ></span
-              >
-            </div>
-            <div class="card-action">
-              <p>
-                <a class="class__link" href="#">Register for class</a>
-                <a class="class__link" href="#">Current classes</a>
-              </p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4"
-                ><%= dogs[i].name%> <%=user.lastName%><i
-                  class="material-icons right"
-                  >close</i
-                ></span
-              >
-              <div class="row">
-                <p>Weight: <%= dogs[i].weight %> lbs</p>
-                <p>Age: <%= dogs[i].age %> years</p>
-                <p>Gender: <%= dogs[i].gender %></p>
-                <p>Breed: <%= dogs[i].breed %></p>
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= dogs[i].name%> <%=user.lastName%>
+                </h5>
+                <div class="card-text row">
+                  <p class="col-sm">Weight: <%= dogs[i].weight %> lbs</p>
+                  <p class="col-sm">Age: <%= dogs[i].age %> years</p>
+                </div>
+                <div class="card-text row">
+                  <p class="col-sm">Gender: <%= dogs[i].gender %></p>
+                  <p class="col-sm">Breed: <%= dogs[i].breed %></p>
+                </div>
+                <div class="card-text row">Notes: <%=dogs[i].notes%></div>
               </div>
-              <p><%=dogs[i].notes%></p>
+              <div class="card-footer">
+                <span class="badge badge-pill badge-success">Good Puppy</span>
+                <div class="row">
+                  <a
+                    class="btn btn-outline-primary mt-2 mr-1"
+                    href="#"
+                    role="button"
+                    >Edit Record</a
+                  >
+                  <a class="btn btn-outline-danger mt-2" href="#" role="button"
+                    >Delete Record</a
+                  >
+                </div>
+              </div>
             </div>
+            <%}%>
           </div>
-        </div>
-        <%}%>
-        <!-- <div class="col s12 m5">
-          dog profiles will go here when ready
-          <div class="card large sticky-action">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="images/Abbey_face.jpg" alt="" />
-            </div>
 
-            <div class="card-content">
-              <span class="card-title activator"
-                >Abbey Melly<i class="material-icons right">more_vert</i></span
-              >
-            </div>
-            <div class="card-action">
-              <p>
-                <a class="class__link" href="#">Register for class</a>
-                <a class="class__link" href="#">Current classes</a>
-              </p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4"
-                >Abbey Melly<i class="material-icons right">close</i></span
-              >
-              <p>
-                Information about your doggie here... Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Aperiam, enim nulla! Mollitia
-                deleniti aut facere est, dolore officiis voluptatum incidunt hic
-                dicta repellendus quibusdam earum quo ex, et alias doloribus.
-              </p>
-            </div>
+          <div class="col m5 offset-m2 s12">
+            <h3>Add a pooch!</h3>
+            <a href="/dog/registerDog" class="waves-effect waves-light btn"
+              >Add</a
+            >
           </div>
-        </div> -->
-        <div class="col m5 offset-m2 s12">
-          <h3>Add a pooch!</h3>
-          <a href="/dog/registerDog" class="waves-effect waves-light btn"
-            >Add</a
-          >
         </div>
       </div>
     </main>
