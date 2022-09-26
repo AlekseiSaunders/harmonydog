@@ -1,1 +1,1 @@
-web: node harmonydog.js
+web: npm run start
