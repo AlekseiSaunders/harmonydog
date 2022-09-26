@@ -21,5 +21,5 @@ const MedicationSchema = new mongoose.Schema({
   },
 });
 
-// exporting the model from above. To be referenced elsewhere as 'User'
+// exporting the model from above. To be referenced elsewhere as 'Medication'
 module.exports = mongoose.model('Medication', MedicationSchema);
