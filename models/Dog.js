@@ -37,24 +37,31 @@ const DogSchema = new mongoose.Schema({
   notes: {
     type: String,
   },
-  owner: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-  },
-	],
+  owner: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+    },
+  ],
+  behaviors: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Behavior',
+    },
+  ],
+  classes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Class',
+    },
+  ],
   medications: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Medication',
     },
   ],
-  behaviors: [
-    {
-      type: mongoose.Schema.Types.ObjectID,
-      ref: 'Behavior',
-    },
-  ],
 });
 
-// exporting the model from above. To be referenced elsewhere as 'User'
+// exporting the model from above. To be referenced elsewhere as 'Dog'
 module.exports = mongoose.model('Dog', DogSchema);
