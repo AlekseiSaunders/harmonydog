@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body>
+    <header><%- include('partials/header') %></header>
+    <main>
+      <div class="container">
+        <h1><%=dog.name%>'s Profile Page:</h1>
+        <div class="row">
+          <div class="col-6">
+            <img
+              class="img-fluid"
+              src="<%= dog.image %>"
+              alt="<%= dog.name %>"
+            />
+            <section>
+              <h5 class=""><%= dog.name%> <%=user.lastName%></h5>
+              <p class="col-sm">Weight: <%= dog.weight %> lbs</p>
+              <p class="col-sm">Age: <%= dog.age %> years</p>
+              <p class="col-sm">Gender: <%= dog.gender %></p>
+              <p class="col-sm">Breed: <%= dog.breed %></p>
+            </section>
+            <section>Notes: <%=dog.notes%></section>
+            <section>
+              <span class="badge badge-pill badge-success">Good Puppy</span>
+            </section>
+          </div>
+          <div class="col 4">
+            <h3>Sign up for a class</h3>
+            <a href="/dog/registerDog" class="waves-effect waves-light btn"
+              >Classes</a
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer page-footer light-blue lighten-1">
+      <%- include('partials/footer') %>
+    </footer>
+    <%- include('partials/scripts') %>
+  </body>
+</html>
