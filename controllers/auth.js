@@ -3,11 +3,21 @@ const validator = require('validator');
 const User = require('../models/User');
 
 exports.getRegister = (req, res) => {
-  res.render('register', { user: req.user });
+  if (!req.user) {
+    let privileges = 'user';
+    res.render('login', { user: req.user, privileges });
+  } else {
+    res.render('login', { user: req.user, privileges: req.user.privileges });
+  }
 };
 
 exports.getLogin = (req, res) => {
-  res.render('login', { user: req.user });
+  if (!req.user) {
+    let privileges = 'user';
+    res.render('login', { user: req.user, privileges });
+  } else {
+    res.render('login', { user: req.user, privileges: req.user.privileges });
+  }
 };
 
 exports.postLogin = (req, res, next) => {
