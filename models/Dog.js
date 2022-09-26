@@ -45,14 +45,28 @@ const DogSchema = new mongoose.Schema({
   ],
   behaviors: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Behavior',
+      id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Behavior',
+      },
+      proficiency: {
+        type: String,
+        default: 'naive',
+        enum: ['naive', 'learning', 'practicing', 'proficient'],
+      },
     },
   ],
   classes: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Class',
+      id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Class',
+      },
+      status: {
+        type: String,
+        default: 'enrolled',
+        enum: ['enrolled', 'begun', 'completed'],
+      },
     },
   ],
   medications: [
