@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="h-100" lang="en">
   <head>
     <%- include('partials/head') %>
   </head>
-  <body>
+  <body class="d-flex flex-column h-100">
     <header><%- include('partials/header') %></header>
-    <main>
+    <main class="mb-3">
       <div class="container">
-        <h1><%=dog.name%>'s Profile Page:</h1>
+        <h1 class="my-2"><%=dog.name%>'s Profile Page:</h1>
         <div class="row">
           <div class="col-6">
             <img
@@ -27,7 +27,7 @@
               <span class="badge badge-pill badge-success">Good Puppy</span>
             </section>
           </div>
-          <div class="col 4">
+          <div class="col-4">
             <h3>Sign <%= dog.name%> up for a class</h3>
             <a href="/dog/registerDog" class="btn text-dark light-blue"
               >Classes</a
@@ -36,7 +36,7 @@
         </div>
       </div>
     </main>
-    <footer class="footer page-footer light-blue lighten-1">
+    <footer class="footer light-blue mt-auto py-3">
       <%- include('partials/footer') %>
     </footer>
     <%- include('partials/scripts') %>
