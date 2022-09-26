@@ -40,9 +40,8 @@ dotenv.config({ path: './config/config.env' });
 require('./config/passport')(passport);
 
 // Connect to database by invoking function from db.js in config folder
-// connectDB();
-const connectionString = process.env.DATABASE_URL;
-mongoose.connect(connectionString);
+connectDB();
+
 
 // Enable morgan in development mode to improve console.logs
 if (process.env.NODE.ENV === 'development') {
