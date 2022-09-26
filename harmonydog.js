@@ -42,9 +42,8 @@ require('./config/passport')(passport);
 // Connect to database by invoking function from db.js in config folder
 connectDB();
 
-
 // Enable morgan in development mode to improve console.logs
-if (process.env.NODE.ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
