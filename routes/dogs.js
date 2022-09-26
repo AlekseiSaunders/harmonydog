@@ -10,7 +10,7 @@ const userController = require('../controllers/user');
 
 router.get('/registerDog', ensureAuth, dogController.getRegister);
 router.post('/registerDog', upload.single('file'), dogController.createDog);
-// router.get('/profile/', ensureAuth, userController.getProfile);
+router.get('/:id', ensureAuth, dogController.getDog);
 // router.get('/login', ensureGuest, authController.getLogin);
 // router.post('/login', authController.postLogin);
 // router.get('/logout', authController.logout);
