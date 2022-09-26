@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 const passport = require('passport');
 const session = require('express-session');
 const methodOverride = require('method-override');
@@ -39,7 +40,9 @@ dotenv.config({ path: './config/config.env' });
 require('./config/passport')(passport);
 
 // Connect to database by invoking function from db.js in config folder
-connectDB();
+// connectDB();
+const connectionString = process.env.DATABASE_URL;
+mongoose.connect(connectionString);
 
 // Enable morgan in development mode to improve console.logs
 if (process.env.NODE.ENV === 'development') {
