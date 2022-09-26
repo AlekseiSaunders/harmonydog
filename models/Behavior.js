@@ -8,7 +8,7 @@ const BehaviorSchema = new mongoose.Schema({
   category: {
     type: String,
     default: 'obedience',
-    enum: ['obedience', ''],
+    enum: ['obedience', 'house training', 'good dog citizen', 'travel dog', 'misc'],
   },
   difficulty: {
     type: String,
@@ -18,7 +18,22 @@ const BehaviorSchema = new mongoose.Schema({
   description: {
     type: String,
   },
+  bridge: {
+    type: String,
+  },
+  cueVocal: {
+    type: String,
+  },
+  cueVisual: {
+    type: String,
+  },
+  behaviorPrior: {
+    type: String,
+  },
+  behaviorSubsequent: {
+    type: String,
+  },
 });
 
-// exporting the model from above. To be referenced elsewhere as 'User'
+// exporting the model from above. To be referenced elsewhere as 'Behavior'
 module.exports = mongoose.model('Behavior', BehaviorSchema);
