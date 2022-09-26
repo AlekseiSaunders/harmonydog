@@ -3,6 +3,19 @@ const validator = require('validator');
 const User = require('../models/User');
 const Dog = require('../models/Dog');
 
+exports.getDog = async (req, res) => {
+  try {
+    const dog = await Dog.findById(req.params.id);
+    res.render('dogProfile.ejs', {
+      dog: dog,
+      user: req.user,
+      privileges: req.user.privileges,
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 exports.getRegister = async (req, res) => {
   try {
     const user = await User.find({ user: req.user.id });
