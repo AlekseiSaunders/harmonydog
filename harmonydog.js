@@ -57,7 +57,7 @@ app.use(
     secret: 'funny banana',
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: true },
+    store: MongoStore.create({ mongoUrl: process.env.DATABASE_URL }),
   })
 );
 
