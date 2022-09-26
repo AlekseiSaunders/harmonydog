@@ -7,6 +7,11 @@
 .light-blue {
   background-color: #29b6f6;
 }
+a.light-blue:hover,
+a.light-blue:focus {
+  background-color: #1c8dc2;
+  color: white !important;
+}
 .title__welcome {
   font-size: 0.75em;
 }
