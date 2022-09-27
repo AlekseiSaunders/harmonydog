@@ -7,63 +7,81 @@
     <header><%- include('partials/header') %></header>
     <main>
       <div class="container">
-        <h1>
+        <h1 class="my-3">
           Profile Page:
           <span class="title__welcome"
             >Welcome <%=user.firstName%> <%=user.lastName%></span
           >
         </h1>
-
         <div class="row">
-          <div class="col-8">
-            <div class="card-deck mb-5">
-              <% for(let i=0; i < dogs.length; i++){%>
-
-              <!-- dog profiles will go here when ready-->
-              <div class="card" style="width: 18rem">
-                <img
-                  class="card-image-top"
-                  src="<%= dogs[i].image %>"
-                  alt="<%= dogs[i].name %>"
-                />
-
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <%= dogs[i].name%> <%=user.lastName%>
-                  </h5>
-                  <div class="card-text row">
-                    <p class="col-sm">Gender: <%= dogs[i].gender %></p>
-                    <p class="col-sm">Breed: <%= dogs[i].breed %></p>
-                  </div>
-                  <hr />
-                  <div class="row">
-                    <%if(dogs[i].classes.length > 0) { %>
-                    <p class="col-sm">Classes:</p>
-                    <%}else{%>
-                    <p>No current classes</p>
-                    <%}%>
-                  </div>
-                  <hr />
-                  <div class="row">Notes: <%=dogs[i].notes%></div>
-                  <hr />
-                  <span class="badge badge-success mt-5">Good Puppy</span>
+          <div class="col-12">
+            <div class="card mb-4 border-primary">
+              <div class="card-body">
+                <h5 class="card-title">Account information</h5>
+                <h6 class="card-subtitle mb-2 text-muted"></h6>
+                <div class="card-text">
+                  <p>Name: <%=user.firstName%> <%=user.lastName%></p>
+                  <p>Email: <%=user.email%></p>
+                  <p>Address: <%=user.address%></p>
+                  <p>Phone #:<%=user.phone%></p>
                 </div>
-                <div class="card-footer">
-                  <a
-                    class="btn text-dark light-blue mt-2 mr-1"
-                    href="/dog/<%-dogs[i]._id%>"
-                    ><%=dogs[i].name%>'s page</a
-                  >
-                  <div class="row"></div>
-                </div>
+                <a href="#" class="card-link">Edit</a>
+                <a href="#" class="card-link">Delete</a>
               </div>
-              <%}%>
+              <div class="card-footer">
+                <h5>Add a pooch!</h5>
+                <a href="/dog/registerDog" class="btn text-dark light-blue"
+                  >Add</a
+                >
+              </div>
             </div>
           </div>
-          <div class="col-2 offset-2">
-            <h3>Add a pooch!</h3>
-            <a href="/dog/registerDog" class="btn text-dark light-blue">Add</a>
+        </div>
+
+        <div class="row">
+          <!-- dynamically generate pet cards based on dogs array-->
+          <% for(let i=0; i < dogs.length; i++){%>
+          <div class="col-sm-12 col-md-4 mb-5">
+            <div class="card border-secondary h-100">
+              <img
+                class="card-image-top"
+                src="<%= dogs[i].image %>"
+                alt="<%= dogs[i].name %>"
+              />
+
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= dogs[i].name%> <%=user.lastName%>
+                </h5>
+                <div class="card-text row">
+                  <p class="col-sm">Gender: <%= dogs[i].gender %></p>
+                  <p class="col-sm">Breed: <%= dogs[i].breed %></p>
+                </div>
+                <hr />
+                <div class="row">
+                  <!-- check for classes in the dog record-->
+                  <%if(dogs[i].classes.length > 0) { %>
+                  <p class="col-sm">Classes:</p>
+                  <%}else{%>
+                  <p>No current classes</p>
+                  <%}%>
+                </div>
+                <hr />
+                <div class="row">Notes: <%=dogs[i].notes%></div>
+                <hr />
+                <span class="badge badge-success mt-5">Good Puppy</span>
+              </div>
+              <div class="card-footer">
+                <a
+                  class="btn text-dark light-blue mt-2 mr-1"
+                  href="/dog/<%-dogs[i]._id%>"
+                  ><%=dogs[i].name%>'s page</a
+                >
+                <div class="row"></div>
+              </div>
+            </div>
           </div>
+          <%}%>
         </div>
       </div>
     </main>
