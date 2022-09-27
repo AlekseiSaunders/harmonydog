@@ -8,7 +8,7 @@
     <main class="mb-3">
       <div class="container">
         <h1 class="my-2"><%=dog.name%>'s Profile Page:</h1>
-        <div class="row">
+        <div class="row mb-3">
           <div class="col-6">
             <img
               class="img-fluid"
@@ -22,11 +22,40 @@
               <p class="col-sm">Gender: <%= dog.gender %></p>
               <p class="col-sm">Breed: <%= dog.breed %></p>
             </section>
+            <hr />
+            <section>
+              <%if(dog.classes.length > 0) { %>
+              <p class="col-sm">Classes:</p>
+              <%}else{%>
+              <p>No current classes</p>
+              <%}%>
+            </section>
+            <hr />
             <section>Notes: <%=dog.notes%></section>
             <section>
-              <span class="badge badge-pill badge-success">Good Puppy</span>
+              <hr />
+              <span class="badge badge-pill badge-success mt-5"
+                >Good Puppy</span
+              >
             </section>
+            <div class="row d-flex justify-content-center mt-3">
+              <a
+                href="edit/<%-dog._id%>"
+                class="btn text-dark btn-outline-warning mx-2"
+                >Edit Profile</a
+              >
+              <form
+                action="/dog/delete/<%= dog.id %>?_method=DELETE"
+                method="POST"
+                class="col-3"
+              >
+                <button class="btn btn-outline-danger" type="submit">
+                  Remove Profile
+                </button>
+              </form>
+            </div>
           </div>
+
           <div class="col-4">
             <h3>Sign <%= dog.name%> up for a class</h3>
             <a href="/dog/registerDog" class="btn text-dark light-blue"
