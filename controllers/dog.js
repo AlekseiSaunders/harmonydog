@@ -19,7 +19,10 @@ exports.getDog = async (req, res) => {
 exports.getRegister = async (req, res) => {
   try {
     const user = await User.find({ user: req.user.id });
-    res.render('registerDog', { user: req.user });
+    res.render('registerDog', {
+      user: req.user,
+      privileges: req.user.privileges,
+    });
   } catch (err) {
     console.err(err);
   }
