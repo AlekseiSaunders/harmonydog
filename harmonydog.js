@@ -25,19 +25,8 @@ const adminRoutes = require('./routes/admin');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Enable method override to allow for updating and deleting via forms
-app.use(
-  methodOverride('_method')
-
-  // (function (req, res) {
-  //     if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-  //       // look in urlencoded POST bodies for a _method value to activate override, delete _method after capture
-  //       let method = req.body._method;
-  //       delete req.body._method;
-  //       return method;
-  //     }
-  //   })
-);
+// Enable method override to allow for updating and deleting via forms, add querystring into route to activate
+app.use(methodOverride('_method'));
 
 // Load dotenv configurations for use
 dotenv.config({ path: './config/config.env' });
