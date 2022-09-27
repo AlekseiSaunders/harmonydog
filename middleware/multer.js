@@ -1,6 +1,10 @@
 const multer = require('multer');
 const path = require('path');
 
+
+// allows multer to upload files from multipart/form-data forms
+// accepting only .jpg and .png type files, capitalization counts and will throw errors
+// consider adding a filesize limit to prevent abuse of data
 module.exports = multer({
   storage: multer.diskStorage({}),
   fileFilter: (req, file, cb) => {

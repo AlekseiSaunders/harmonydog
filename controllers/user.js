@@ -1,6 +1,8 @@
 const User = require('../models/User');
 const Dog = require('../models/Dog');
 
+// checking user privileges, if they are user, display profile view
+// if they are admin or root, display dashboard view
 exports.getProfile = async (req, res) => {
   try {
     const user = await User.find({ user: req.user.id });
@@ -12,6 +14,8 @@ exports.getProfile = async (req, res) => {
         dogs: dogs,
       });
     } else {
+// using mongoDB aggregate to bring in dogs related to the user
+// add them to user document temporarily to combine documents for dashboard view
       const users = await User.aggregate([
         {
           $lookup: {

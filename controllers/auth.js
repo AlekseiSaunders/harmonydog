@@ -2,6 +2,11 @@ const passport = require('passport');
 const validator = require('validator');
 const User = require('../models/User');
 
+
+// check if a user is logged in, if not, set privileges to 'user' to render menu conditionally in safest way
+// if a user is logged in, then set privileges to their actually privileges value
+// done for both controllers below
+
 exports.getRegister = (req, res) => {
   if (!req.user) {
     let privileges = 'user';

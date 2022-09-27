@@ -8,11 +8,13 @@
     <main class="container">
       <h1>Update <%=dog.name%>'s Records</h1>
       <div class="row justify-content-center">
+        <!-- query ?_method=PUT added to invoke methodOverride and allow updating from form button -->
         <form
           class="needs-validation"
           action="/dog/<%=dog._id%>?_method=PUT"
           method="POST"
         >
+          <!-- add hidden form to include user.lastName in Dog schema -->
           <input type="hidden" name="lastName" value="req.user.lastName" />
 
           <div class="mb-3">
@@ -26,6 +28,7 @@
               required
             />
           </div>
+          <!-- conditionally pre-fill radio boxes with dog.gender from database -->
           <%if(dog.gender == 'female'){%>
           <div class="form-check">
             <p class="mb-1">Gender:</p>
@@ -128,6 +131,7 @@
           </div>
 
           <div class="mb-3">
+            <!-- currently having issues with updating cloudinary file, temporary fix-->
             <h5>
               Contact support if you'd like to replace <%=dog.name%>'s picture
               with a new one.

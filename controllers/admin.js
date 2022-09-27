@@ -1,7 +1,8 @@
 const User = require('../models/User');
 const Dog = require('../models/Dog');
 
-
+// using mongoDB aggregate to bring in dogs related to the user
+// add them to user document temporarily to combine documents for dashboard view
 exports.getDashboard = async (req, res) => {
   try {
     const users = await User.aggregate([
@@ -14,7 +15,6 @@ exports.getDashboard = async (req, res) => {
         },
       },
     ]);
-    console.log(users[1].pets[0].name);
     res.render('dashboard', {
       user: req.user,
       users: users,

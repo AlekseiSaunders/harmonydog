@@ -23,6 +23,7 @@
               <p class="col-sm">Breed: <%= dog.breed %></p>
             </section>
             <hr />
+            <!-- check to see if there are any entries in dog.classes array-->
             <section>
               <%if(dog.classes.length > 0) { %>
               <p class="col-sm">Classes:</p>
@@ -44,6 +45,7 @@
                 class="btn text-dark btn-outline-warning mx-2"
                 >Edit Profile</a
               >
+              <!-- query ?_method=DELETE added to allow methodOverride to use form to delete record -->
               <form
                 action="/dog/delete/<%= dog.id %>?_method=DELETE"
                 method="POST"
