@@ -5,9 +5,9 @@ const User = require('../models/User');
 exports.getRegister = (req, res) => {
   if (!req.user) {
     let privileges = 'user';
-    res.render('login', { user: req.user, privileges });
+    res.render('register', { user: req.user, privileges });
   } else {
-    res.render('login', { user: req.user, privileges: req.user.privileges });
+    res.render('register', { user: req.user, privileges: req.user.privileges });
   }
 };
 
