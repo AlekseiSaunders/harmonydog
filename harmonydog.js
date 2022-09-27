@@ -27,14 +27,16 @@ app.use(express.json());
 
 // Enable method override to allow for updating and deleting via forms
 app.use(
-  methodOverride(function (req, res) {
-    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-      // look in urlencoded POST bodies for a _method value to activate override, delete _method after capture
-      let method = req.body._method;
-      delete req.body._method;
-      return method;
-    }
-  })
+  methodOverride('_method')
+
+  // (function (req, res) {
+  //     if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+  //       // look in urlencoded POST bodies for a _method value to activate override, delete _method after capture
+  //       let method = req.body._method;
+  //       delete req.body._method;
+  //       return method;
+  //     }
+  //   })
 );
 
 // Load dotenv configurations for use
