@@ -7,7 +7,6 @@ const DogSchema = new mongoose.Schema({
   },
   gender: {
     type: String,
-    default: 'female',
     enum: ['female', 'male'],
     required: true,
   },
