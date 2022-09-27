@@ -41,4 +41,12 @@ router.get('/about', mainController.getAbout);
 // @route GET /services
 router.get('/services', mainController.getServices);
 
+// @desc Show Dogwalking page
+// @route GET /dogwalking
+router.get('/dogwalking', mainController.getDogwalking);
+
+// @desc Show AlaCarte page
+// @route GET /alacarte
+router.get('/alacarte', mainController.getAlaCarte);
+
 module.exports = router;

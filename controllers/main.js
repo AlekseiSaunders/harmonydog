@@ -28,3 +28,27 @@ exports.getServices = (req, res) => {
     res.render('services', { user: req.user, privileges: req.user.privileges });
   }
 };
+
+exports.getDogwalking = (req, res) => {
+  if (!req.user) {
+    let privileges = 'user';
+    res.render('dogwalking', { user: req.user, privileges });
+  } else {
+    res.render('dogwalking', {
+      user: req.user,
+      privileges: req.user.privileges,
+    });
+  }
+};
+
+exports.getAlaCarte = (req, res) => {
+  if (!req.user) {
+    let privileges = 'user';
+    res.render('alacarte', { user: req.user, privileges });
+  } else {
+    res.render('alacarte', {
+      user: req.user,
+      privileges: req.user.privileges,
+    });
+  }
+};
