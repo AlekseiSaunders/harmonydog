@@ -50,3 +50,55 @@ exports.createDog = async (req, res) => {
     console.error(err);
   }
 };
+
+exports.editDog = async (req, res) => {
+  try {
+    let dog = await Dog.findOne({
+      _id: req.params.id,
+    }).lean();
+    if (!dog) {
+      res.redirect('/profile');
+    } else {
+      res.render('edit', {
+        privileges: req.user.privileges,
+        user: req.user,
+        dog,
+      });
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+exports.updateDog = async (req, res) => {
+  try {
+    let dog = await Dog.findById(req.params.id);
+    console.log(req.body);
+    if (!dog) {
+      res.render('/profile');
+    }
+    dog = await Dog.findOneAndUpdate(
+      {
+        _id: req.params.id,
+      },
+      req.body,
+      { new: true, runValidators: true }
+    );
+    res.redirect('/profile');
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+exports.deleteDog = async (req, res) => {
+  try {
+    let dog = await Dog.findById({ _id: req.params.id });
+    await cloudinary.uploader.destroy(dog.cloudinaryId);
+    await Dog.remove({ _id: req.params.id });
+    console.log('deleted dog');
+    res.redirect('/profile');
+  } catch (error) {
+    console.error(error);
+    res.redirect('/profile');
+  }
+};
