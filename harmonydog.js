@@ -13,6 +13,9 @@ const path = require('path');
 const PORT = process.env.PORT || 1066;
 const app = express();
 
+// Declare static folder to serve static assets
+app.use(express.static(path.join(__dirname, 'public')));
+
 // link route files for use below
 const mainRoutes = require('./routes/main');
 const dogRoutes = require('./routes/dogs');
@@ -64,9 +67,6 @@ app.use(
 // Enable passport middleware for authentication and authorization
 app.use(passport.initialize());
 app.use(passport.session());
-
-// Declare static folder to serve static assets
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Enable flash message use for errors, information, etc
 app.use(flash());
