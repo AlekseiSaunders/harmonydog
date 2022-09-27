@@ -11,9 +11,9 @@ const userController = require('../controllers/user');
 router.get('/registerDog', ensureAuth, dogController.getRegister);
 router.post('/registerDog', upload.single('file'), dogController.createDog);
 router.get('/:id', ensureAuth, dogController.getDog);
-// router.get('/login', ensureGuest, authController.getLogin);
-// router.post('/login', authController.postLogin);
-// router.get('/logout', authController.logout);
+router.get('/edit/:id', ensureAuth, dogController.editDog);
+router.put('/:id', ensureAuth, upload.single('file'), dogController.updateDog);
+router.delete('/delete/:id', ensureAuth, dogController.deleteDog);
 // router.get('/register', ensureGuest, authController.getRegister);
 // router.post('/register', authController.postRegister);
 
