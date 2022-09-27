@@ -10,7 +10,6 @@ const userController = require('../controllers/user');
 
 router.get('/', mainController.getIndex);
 router.get('/profile', ensureAuth, userController.getProfile);
-router.get('/dashboard', ensureAuth, userController.getDashboard);
 router.get('/login', ensureGuest, authController.getLogin);
 router.post('/login', authController.postLogin);
 router.get('/logout', authController.logout);
