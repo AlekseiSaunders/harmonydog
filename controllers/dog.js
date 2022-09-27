@@ -35,7 +35,7 @@ exports.createDog = async (req, res) => {
 
     await Dog.create({
       name: req.body.name,
-      gender: req.body.gender.toLowerCase(),
+      gender: req.body.gender,
       breed: req.body.breed,
       age: req.body.age,
       weight: req.body.weight,
