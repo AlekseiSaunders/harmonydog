@@ -26,18 +26,63 @@
               required
             />
           </div>
-          <label for="gender">Select a gender </label>
-          <select
-            id="gender"
-            class="form-select form-select-lg mb-3 ml-2"
-            aria-label="Select Gender"
-            required
-          >
-            <option selected></option>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-          </select>
+          <%if(dog.gender == 'female'){%>
+          <div class="form-check">
+            <p class="mb-1">Gender:</p>
 
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              id="flexRadioDefault1"
+              value="female"
+              checked
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Female
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              id="flexRadioDefault2"
+              value="male"
+            />
+            <label class="form-check-label" for="flexRadioDefault2">
+              Male
+            </label>
+          </div>
+          <%}else{%>
+          <div class="form-check">
+            <p class="mb-1">Gender:</p>
+
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              id="flexRadioDefault1"
+              value="female"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Female
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              id="flexRadioDefault2"
+              value="male"
+              checked
+            />
+            <label class="form-check-label" for="flexRadioDefault2">
+              Male
+            </label>
+          </div>
+          <%}%>
           <div class="mb-3">
             <label for="breed" class="form-label">Breed: best guess</label>
             <input

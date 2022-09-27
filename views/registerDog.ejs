@@ -26,17 +26,32 @@
               required
             />
           </div>
-          <label for="gender">Select a gender </label>
-          <select
-            id="gender"
-            required
-            class="form-select form-select-lg mb-3 ml-2"
-            aria-label="Select Gender"
-          >
-            <option selected></option>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-          </select>
+          <div class="form-check">
+            <p class="mb-1">Gender:</p>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              id="flexRadioDefault1"
+              value="female"
+              checked
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Female
+            </label>
+          </div>
+          <div class="form-check mb-3">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              id="flexRadioDefault2"
+              value="male"
+            />
+            <label class="form-check-label" for="flexRadioDefault2">
+              Male
+            </label>
+          </div>
 
           <div class="mb-3">
             <label for="breed" class="form-label">Breed: best guess</label>
@@ -52,7 +67,7 @@
           <div class="mb-3">
             <label for="age" class="form-label">Age: best guess</label>
             <input
-              type="text"
+              type="number"
               class="form-control"
               id="age"
               name="age"
