@@ -7,28 +7,20 @@
     <header><%- include('partials/header') %></header>
     <main class="container">
       <h1>New Dog Registration</h1>
-      <section class="col-6 mt-5">
-        <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => {
-        %>
-        <div class="card-panel red lighten-2"><%= el.msg %></div>
-        <% }) %> <% } %> <% if (locals.messages.info) { %> <%
-        messages.info.forEach( el => { %>
-        <div class="card-panel red lighten-2"><%= el.msg %></div>
-        <% }) %> <% } %>
-        <form
-          action="/dog/registerDog"
-          enctype="multipart/form-data"
-          method="POST"
-        >
-          <input type="hidden" name="lastName" value="req.user.lastName" />
-          <div class="row">
-            <div class="input-field">
+      <div class="row justify-content-center">
+          <form
+            action="/dog/registerDog"
+            enctype="multipart/form-data"
+            method="POST"
+          >
+            <input type="hidden" name="lastName" value="req.user.lastName" />
+
+            <div class="mb-3">
               <label for="name" class="form-label">Name</label>
               <input type="text" class="form-control" id="name" name="name" />
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field">
+
+            <div class="mb-3">
               <label for="gender" class="form-label">Gender</label>
               <input
                 type="text"
@@ -37,21 +29,18 @@
                 name="gender"
               />
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field">
+
+            <div class="mb-3">
               <label for="breed" class="form-label">Breed: best guess</label>
               <input type="text" class="form-control" id="breed" name="breed" />
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field">
+
+            <div class="mb-3">
               <label for="age" class="form-label">Age: best guess</label>
               <input type="text" class="form-control" id="age" name="age" />
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field">
+
+            <div class="mb-3">
               <label for="weight" class="form-label"
                 >Estimated Weight (in lbs.)</label
               >
@@ -62,15 +51,13 @@
                 name="weight"
               />
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field">
+
+            <div class="mb-3">
               <h5>Notes</h5>
-              <textarea id="notes" name="notes" cols="20" rows="30"></textarea>
+              <textarea id="notes" name="notes" cols="70" rows="5"></textarea>
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field">
+
+            <div class="mb-3">
               <h5>
                 Image Upload - Please select a clear image that shows you dogs
                 face clearly
@@ -82,12 +69,10 @@
                 name="file"
               />
             </div>
-          </div>
-          <div class="row">
             <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
-      </section>
+          </form>
+        </section>
+      </div>
     </main>
     <footer class="footer light-blue mt-auto py-3">
       <%- include('partials/footer') %>
