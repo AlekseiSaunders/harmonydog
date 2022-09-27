@@ -16,7 +16,7 @@
 
         <div class="row">
           <div class="col-8">
-            <div class="card-deck">
+            <div class="card-deck mb-5">
               <% for(let i=0; i < dogs.length; i++){%>
 
               <!-- dog profiles will go here when ready-->
@@ -32,22 +32,28 @@
                     <%= dogs[i].name%> <%=user.lastName%>
                   </h5>
                   <div class="card-text row">
-                    <p class="col-sm">Weight: <%= dogs[i].weight %> lbs</p>
-                    <p class="col-sm">Age: <%= dogs[i].age %> years</p>
-                  </div>
-                  <div class="card-text row">
                     <p class="col-sm">Gender: <%= dogs[i].gender %></p>
                     <p class="col-sm">Breed: <%= dogs[i].breed %></p>
                   </div>
-                  <div class="card-text row">Notes: <%=dogs[i].notes%></div>
+                  <hr />
+                  <div class="row">
+                    <%if(dogs[i].classes.length > 0) { %>
+                    <p class="col-sm">Classes:</p>
+                    <%}else{%>
+                    <p>No current classes</p>
+                    <%}%>
+                  </div>
+                  <hr />
+                  <div class="row">Notes: <%=dogs[i].notes%></div>
+                  <hr />
+                  <span class="badge badge-success mt-5">Good Puppy</span>
+                </div>
+                <div class="card-footer">
                   <a
                     class="btn text-dark light-blue mt-2 mr-1"
                     href="/dog/<%-dogs[i]._id%>"
-                    >Edit Record</a
+                    ><%=dogs[i].name%>'s page</a
                   >
-                </div>
-                <div class="card-footer">
-                  <span class="badge badge-pill badge-success">Good Puppy</span>
                   <div class="row"></div>
                 </div>
               </div>
