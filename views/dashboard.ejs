@@ -7,8 +7,8 @@
     <header><%- include('partials/header') %></header>
     <main>
       <div class="container">
-        <h1 class="mb-5">
-          Profile Page:
+        <h1 class="my-5">
+          Administration Dashboard:
           <span class="title__welcome"
             >Welcome <%=user.firstName%> <%=user.lastName%></span
           >
@@ -25,11 +25,17 @@
                 <div class="card-text row">
                   <p class="col-sm">Email: <%= users[i].email %></p>
                 </div>
+                <!-- if user has pets, render them out-->
                 <% if(users[i].pets.length > 0){%> <% for(let j = 0; j <
                 users[i].pets.length; j++){%>
-                <div class="card-text row">
-                  <p class="col-sm">Pet: <%=users[i].pets[j].name%></p>
-                </div>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    Pet:
+                    <a href="/dog/<%=users[i].pets[j]._id%>">
+                      <%=users[i].pets[j].name%>
+                    </a>
+                  </li>
+                </ul>
                 <%}%> <%}%>
                 <div class="card-footer"></div>
                 <div class="row"></div>
