@@ -7,46 +7,36 @@
     <header><%- include('partials/header') %></header>
     <main>
       <div class="container">
-        <h1>
+        <h1 class="mb-5">
           Profile Page:
           <span class="title__welcome"
             >Welcome <%=user.firstName%> <%=user.lastName%></span
           >
         </h1>
 
-        <div class="row">
-          <div class="col-8">
-            <div class="card-deck">
-              <% for(let i=0; i < users.length; i++){%>
-              <div class="card" style="width: 18rem">
-                <div class="card-body">
-                  <h5 class="card-title">
-                    <%= users[i].firstName%> <%=users[i].lastName%>
-                  </h5>
-                  <div class="card-text row">
-                    <p class="col-sm">Email: <%= users[i].email %></p>
-                  </div>
-                  <% if(users[i].pets.length > 0){%> <% for(let j = 0; j <
-                  users[i].pets.length; j++){%>
-                  <div class="card-text row">
-                    <p class="col-sm">Pet: <%=users[i].pets[j].name%></p>
-                  </div>
-                  <%}%> <%}%>
-                  <div class="card-footer">
-                    <span class="badge badge-pill badge-success"
-                      >Good Puppy</span
-                    >
-                  </div>
-                  <div class="row"></div>
+        <div class="row rows-cols-1 rows-cols-md-2 g-4">
+          <% for(let i=0; i < users.length; i++){%>
+          <div class="col">
+            <div class="card mb-3 border-success" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= users[i].firstName%> <%=users[i].lastName%>
+                </h5>
+                <div class="card-text row">
+                  <p class="col-sm">Email: <%= users[i].email %></p>
                 </div>
+                <% if(users[i].pets.length > 0){%> <% for(let j = 0; j <
+                users[i].pets.length; j++){%>
+                <div class="card-text row">
+                  <p class="col-sm">Pet: <%=users[i].pets[j].name%></p>
+                </div>
+                <%}%> <%}%>
+                <div class="card-footer"></div>
+                <div class="row"></div>
               </div>
-              <%}%>
             </div>
           </div>
-          <div class="col-2 offset-2">
-            <h3>Add a pooch!</h3>
-            <a href="/dog/registerDog" class="btn text-dark light-blue">Add</a>
-          </div>
+          <%}%>
         </div>
       </div>
     </main>
