@@ -8,14 +8,15 @@
     <main class="container">
       <h1>New User Registration</h1>
       <section class="col-6 mt-5">
+        <!-- enable flash error messages for invalid registration form -->
         <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => {
         %>
-        <div class="card-panel red lighten-2"><%= el.msg %></div>
+        <div class="card-panel alert alert-danger"><%= el.msg %></div>
         <% }) %> <% } %> <% if (locals.messages.info) { %> <%
         messages.info.forEach( el => { %>
-        <div class="card-panel red lighten-2"><%= el.msg %></div>
+        <div class="card-panel alert alert-info"><%= el.msg %></div>
         <% }) %> <% } %>
-        <form action="/register" method="POST">
+        <form action="/register" method="POST" class="mb-5">
           <div class="mb-3">
             <label for="firstName" class="form-label">First Name</label>
             <input
