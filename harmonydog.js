@@ -19,6 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // link route files for use below
 const mainRoutes = require('./routes/main');
 const dogRoutes = require('./routes/dogs');
+const adminRoutes = require('./routes/admin');
 
 // Use body parser middleware to get data from request.body
 app.use(express.urlencoded({ extended: false }));
@@ -74,6 +75,7 @@ app.use(flash());
 // Declare base routes for use
 app.use('/', mainRoutes);
 app.use('/dog', dogRoutes);
+app.use('/admin', adminRoutes);
 
 // Start server
 app.listen(
