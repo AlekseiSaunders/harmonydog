@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="h-100" lang="en">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body class="d-flex flex-column h-100">
+    <header><%- include('partials/header') %></header>
+    <main class="container-fluid">
+      <h1 class="mt-2 mb-4 ml-5">Harmony Dog Services</h1>
+      <div class="container">
+        <div class="row mb-3">
+          <div class="col-5">
+            <div class="card mb-3">
+              <h3 class="card-header text-center">Dog Walking</h3>
+              <div class="card-body">
+                <h5 class="card-title">
+                  Get your doggo some exercise during the day
+                </h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+                  perferendis quidem, perspiciatis iusto aut ipsa pariatur et,
+                  amet, necessitatibus ipsam officia quas dignissimos inventore.
+                  Officia, nihil. Aspernatur nulla dolores aliquid.
+                </p>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    A tired dog is a well behaved dog
+                  </li>
+                  <li class="list-group-item">
+                    30 - 60 minute time slots available
+                  </li>
+                  <li class="list-group-item">
+                    Price includes up to 2 dogs from the same household
+                  </li>
+                  <li class="list-group-item">
+                    Jogging excursions available upon request
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer text-muted text-center">
+                <div></div>
+              </div>
+            </div>
+          </div>
+          <!-- end of card -->
+          <div class="col-5">
+            <div class="card border-success">
+              <!-- Calendly inline widget begin -->
+              <div
+                class="calendly-inline-widget"
+                data-url="https://calendly.com/harmonydog/30-minute-dog-walk?primary_color=29b6f6"
+                style="min-width: 320px; height: 630px"
+              ></div>
+              <script
+                type="text/javascript"
+                src="https://assets.calendly.com/assets/external/widget.js"
+                async
+              ></script>
+              <!-- Calendly inline widget end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer light-blue mt-auto py-3">
+      <%- include('partials/footer') %>
+    </footer>
+    <%- include('partials/scripts') %>
+  </body>
+</html>
