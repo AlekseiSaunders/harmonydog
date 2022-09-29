@@ -20,21 +20,25 @@ exports.getAbout = (req, res) => {
   }
 };
 
+// since these views are nested within the views folder, in services, the render route must change to included that
 exports.getServices = (req, res) => {
   if (!req.user) {
     let privileges = 'user';
-    res.render('services', { user: req.user, privileges });
+    res.render('services/services', { user: req.user, privileges });
   } else {
-    res.render('services', { user: req.user, privileges: req.user.privileges });
+    res.render('services/services', {
+      user: req.user,
+      privileges: req.user.privileges,
+    });
   }
 };
 
 exports.getDogwalking = (req, res) => {
   if (!req.user) {
     let privileges = 'user';
-    res.render('dogwalking', { user: req.user, privileges });
+    res.render('services/dogwalking', { user: req.user, privileges });
   } else {
-    res.render('dogwalking', {
+    res.render('services/dogwalking', {
       user: req.user,
       privileges: req.user.privileges,
     });
@@ -44,9 +48,9 @@ exports.getDogwalking = (req, res) => {
 exports.getAlaCarte = (req, res) => {
   if (!req.user) {
     let privileges = 'user';
-    res.render('alacarte', { user: req.user, privileges });
+    res.render('services/alacarte', { user: req.user, privileges });
   } else {
-    res.render('alacarte', {
+    res.render('services/alacarte', {
       user: req.user,
       privileges: req.user.privileges,
     });
