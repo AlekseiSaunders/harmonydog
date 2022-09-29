@@ -43,6 +43,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Set ejs as view engine for template rendering
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Enable session middleware to allow session use (must be declared above passport middleware)
