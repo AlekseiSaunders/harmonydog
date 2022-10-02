@@ -16,10 +16,10 @@ a.light-blue:focus {
   font-size: 0.75em;
 }
 .carousel {
-  width: 50vw;
+  width: fit-content;
 }
 .carousel-item {
-  width: 50vw;
+  width: fit-content;
 }
 .carousel-inner > .carousel-item > img {
   width: 100%;

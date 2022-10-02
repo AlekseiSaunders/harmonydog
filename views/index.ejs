@@ -6,15 +6,11 @@
   <body class="d-flex flex-column h-100">
     <header><%- include('partials/header') %></header>
     <main class="container-fluid">
-      <h1 class="mt-2 mb-4 ml-5">Welcome to Harmony Dog</h1>
       <div class="row">
-        <div class="col-9">
-          <!-- temporary fix to allow carousel images to render -->
-          <img
-            class="visually-hidden"
-            src="/images/anoir_chafik_puppies.JPG"
-            alt=""
-          />
+        <h1 class="mt-2 mb-4 ml-5">Welcome to Harmony Dog</h1>
+      </div>
+      <div class="row justify-content-center justify-content-lg-center">
+        <div class="col-10 col-lg-7 ml-5">
           <div
             id="carouselExampleIndicators"
             class="carousel slide m-auto"
@@ -126,11 +122,13 @@
             </a>
           </div>
         </div>
-        <div class="col-3">
+        <div class="col-10 col-lg-4">
           <!-- These tips will eventually be generated dynamically from a database -->
           <!-- There will also be a general tips page, perhaps a blog like format-->
-          <div class="row">
+          <div class="row justify-content-center">
             <h3>Training tip of the week</h3>
+          </div>
+          <div class="row justify-content-center">
             <div class="card mb-3" style="width: 18rem">
               <div class="card-body">
                 <h5 class="card-title">Training Tip #36</h5>
@@ -146,7 +144,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row justify-content-center">
             <div class="card mb-3" style="width: 18rem">
               <img
                 src="/images/justin_veenema_onLeash.JPG"
@@ -164,7 +162,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row justify-content-center">
             <div class="card mb-3" style="width: 18rem">
               <img
                 src="/images/aaron_james_kennel.JPG"
