@@ -14,8 +14,12 @@ router.get('/', mainController.getIndex);
 router.get('/profile', ensureAuth, userController.getProfile);
 
 // @desc Show User edit profile page
-// @route Get /profile/edit/:id
-// router.get('/edit/:id', ensureAuth, userController.getUserEdit);
+// @route GET /profile/edit/:id
+router.get('/edit/:id', ensureAuth, userController.getUserEdit);
+
+// @desc Submit User edit profile page
+// @route PUT /profile
+router.put('/:id', ensureAuth, userController.updateUser);
 
 // @desc Show User Login page
 // @route GET /login
