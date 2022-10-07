@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const Dog = require('../models/Dog');
+const passport = require('passport');
 
 // checking user privileges, if they are user, display profile view
 // if they are admin or root, display dashboard view
@@ -68,5 +69,18 @@ exports.updateUser = async (req, res) => {
     res.redirect('/profile');
   } catch (error) {
     console.error(error);
+  }
+};
+exports.deleteUser = async (req, res) => {
+  try {
+    let user = await User.findById({ _id: req.params.id });
+    req.logout(() => {
+      console.log('User has logged out.');
+    });
+    await User.remove({ _id: req.params.id });
+    res.redirect('/');
+  } catch (error) {
+    console.error(error);
+    res.redirect('/');
   }
 };
