@@ -13,6 +13,10 @@ router.get('/', mainController.getIndex);
 // @route GET /profile
 router.get('/profile', ensureAuth, userController.getProfile);
 
+// @desc Show User edit profile page
+// @route Get /profile/edit/:id
+// router.get('/edit/:id', ensureAuth, userController.getUserEdit);
+
 // @desc Show User Login page
 // @route GET /login
 router.get('/login', ensureGuest, authController.getLogin);
