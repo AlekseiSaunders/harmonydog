@@ -59,7 +59,7 @@ exports.editDog = async (req, res) => {
     if (!dog) {
       res.redirect('/profile');
     } else {
-      res.render('edit', {
+      res.render('editDog', {
         privileges: req.user.privileges,
         user: req.user,
         dog,
