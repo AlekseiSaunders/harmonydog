@@ -14,8 +14,8 @@ exports.getProfile = async (req, res) => {
         dogs: dogs,
       });
     } else {
-// using mongoDB aggregate to bring in dogs related to the user
-// add them to user document temporarily to combine documents for dashboard view
+      // using mongoDB aggregate to bring in dogs related to the user
+      // add them to user document temporarily to combine documents for dashboard view
       const users = await User.aggregate([
         {
           $lookup: {
@@ -35,5 +35,38 @@ exports.getProfile = async (req, res) => {
     }
   } catch (err) {
     console.err(err);
+  }
+};
+
+exports.getUserEdit = async (req, res) => {
+  try {
+    const user = await User.findById({ _id: req.params.id });
+    if (req.user.privileges === 'user') {
+      res.render('editUser', {
+        user: user,
+        privileges: user.privileges,
+      });
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+exports.updateUser = async (req, res) => {
+  try {
+    let user = await User.findById({ _id: req.params.id });
+    if (!user) {
+      res.render('/profile');
+    }
+    user = await User.findOneAndUpdate(
+      {
+        _id: req.params.id,
+      },
+      req.body,
+      { new: false, runValidators: true }
+    );
+    res.redirect('/profile');
+  } catch (error) {
+    console.error(error);
   }
 };
