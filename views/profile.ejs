@@ -20,10 +20,19 @@
                 <h5 class="card-title">Account information</h5>
                 <h6 class="card-subtitle mb-2 text-muted"></h6>
                 <div class="card-text">
-                  <p>Name: <%=user.firstName%> <%=user.lastName%></p>
-                  <p>Email: <%=user.email%></p>
-                  <p>Address: <%=user.address%></p>
-                  <p>Phone #:<%=user.phone%></p>
+                  <div class="row">
+                    <div class="col-md-5 col-8">
+                      <p>Name: <%=user.firstName%> <%=user.lastName%></p>
+                      <p>Email: <%=user.email%></p>
+                      <p>UserName: <%=user.userName%></p>
+                    </div>
+                    <div class="col-md-5 col-8">
+                      <p>Street Address: <%=user.addressStreet%></p>
+                      <p>City: <%=user.addressCity%></p>
+                      <p>Zip Code: <%=user.addressZip%></p>
+                      <p>Phone #:<%=user.phone%></p>
+                    </div>
+                  </div>
                 </div>
                 <a href="/edit/<%=user._id%>" class="card-link">Edit</a>
                 <a href="#" class="card-link">Delete</a>
