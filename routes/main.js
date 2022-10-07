@@ -57,4 +57,8 @@ router.get('/dogwalking', mainController.getDogwalking);
 // @route GET /alacarte
 router.get('/alacarte', mainController.getAlaCarte);
 
+// @desc Delete User profile
+// @route DELETE /:id
+router.delete('/deleteUser/:id', ensureAuth, userController.deleteUser);
+
 module.exports = router;
