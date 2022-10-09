@@ -6,8 +6,70 @@
   <body class="d-flex flex-column h-100">
     <header><%- include('partials/header') %></header>
     <main class="mb-3">
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="deleteProtectionModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="deleteProtectionModalTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteProtectionModalLongTitle">
+                Delete This Account
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h4>You are about to delete your Harmony Dog profile.</h4>
+              <hr />
+              <p>
+                Make sure you want to do this because accounts cannot be
+                recovered
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <form
+                action="/dog/delete/<%= dog.id %>?_method=DELETE"
+                method="POST"
+              >
+                <% if(user.privileges === 'demo') {%>
+                <button type="submit" class="btn btn-danger" disabled>
+                  Delete
+                </button>
+                <%}else{%>
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <%}%>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end Modal -->
       <div class="container">
         <h1 class="my-2"><%=dog.name%>'s Profile Page:</h1>
+        <%if(user.privileges === 'demo'){%>
+        <p class="text-warning bg-dark px-5 py-2">
+          Note: You are using a demo account so some functionality is disabled.
+        </p>
+        <%}%>
         <div class="row mb-3">
           <div class="col-6">
             <img
@@ -40,13 +102,24 @@
               >
             </section>
             <div class="row d-flex justify-content-center mt-3">
+              <a href="/profile" class="btn btn-outline-success"
+                >Back to Your profile</a
+              >
               <a
                 href="edit/<%-dog._id%>"
                 class="btn text-dark btn-outline-warning mx-2"
                 >Edit Profile</a
               >
               <!-- query ?_method=DELETE added to allow methodOverride to use form to delete record -->
-              <form
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-toggle="modal"
+                data-target="#deleteProtectionModal"
+              >
+                Remove Profile
+              </button>
+              <!-- <form
                 action="/dog/delete/<%= dog.id %>?_method=DELETE"
                 method="POST"
                 class="col-3"
@@ -54,7 +127,7 @@
                 <button class="btn btn-outline-danger" type="submit">
                   Remove Profile
                 </button>
-              </form>
+              </form> -->
             </div>
           </div>
 
