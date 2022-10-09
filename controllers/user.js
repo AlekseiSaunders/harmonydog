@@ -35,7 +35,7 @@ exports.getProfile = async (req, res) => {
       });
     }
   } catch (err) {
-    console.err(err);
+    console.error(err);
   }
 };
 
@@ -73,7 +73,7 @@ exports.updateUser = async (req, res) => {
 };
 exports.deleteUser = async (req, res) => {
   try {
-    let user = await User.findById({ _id: req.params.id });
+    await Dog.deleteMany({ owner: req.params.id });
     req.logout(() => {
       console.log('User has logged out.');
     });
