@@ -73,7 +73,6 @@ exports.editDog = async (req, res) => {
 exports.updateDog = async (req, res) => {
   try {
     let dog = await Dog.findById(req.params.id);
-    console.log(req.body);
     if (!dog) {
       res.render('/profile');
     }
