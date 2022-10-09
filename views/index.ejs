@@ -6,11 +6,29 @@
   <body class="d-flex flex-column h-100">
     <header><%- include('partials/header') %></header>
     <main class="container-fluid">
-      <div class="row">
+      <div class="row justify-content-between">
         <h1 class="mt-2 mb-4 ml-5">Welcome to Harmony Dog</h1>
+        <form action="/login" method="POST">
+          <input
+            type="hidden"
+            id="userEmail"
+            name="userEmail"
+            value="bojangles@gmail.com"
+          />
+          <input
+            type="hidden"
+            name="password"
+            id="password"
+            value="hewilldanceforyou"
+          />
+          <button class="btn btn-outline-success my-3 mr-5" type="submit">
+            Look around with a demo account
+          </button>
+        </form>
       </div>
       <div class="row justify-content-center justify-content-lg-center">
         <div class="col-10 col-lg-7 ml-5">
+          <!-- Begin carousel -->
           <div
             id="carouselExampleIndicators"
             class="carousel slide m-auto"
@@ -121,7 +139,10 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
+          <!-- End carousel -->
         </div>
+        <!-- End column -->
+
         <div class="col-10 col-lg-4 py-4">
           <!-- These tips will eventually be generated dynamically from a database -->
           <!-- There will also be a general tips page, perhaps a blog like format-->
@@ -134,10 +155,9 @@
                 <h5 class="card-title">Training Tip #36</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Sit & Stay</h6>
                 <p class="card-text">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Consequuntur asperiores ad cupiditate nihil deserunt facere
-                  dolorum error fuga vero veniam reprehenderit, sequi
-                  repellendus praesentium sit similique minima amet. Non, quos!
+                  While sit is a simple request for many dogs, stay is more
+                  complicated. Make sure your pet's sit is strong and persistent
+                  and then work slowly while increasing distances of stay.
                 </p>
                 <a href="#" class="card-link">Learn More</a>
                 <a href="#" class="card-link">More tips</a>
@@ -155,8 +175,10 @@
                 <h5 class="card-title">Training Tip #4</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Behaving on leash</h6>
                 <p class="card-text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Facilis expedita accusantium ...
+                  The physical connection of the leash between dog and owner can
+                  prompt some less-desirable behaviors in our pets. Knowing what
+                  to do, and what to avoid when on leash can be complicate.
+                  Develop a leash plan before 'bad' behaviors become ingrained.
                 </p>
                 <a href="#" class="card-link">Learn More</a>
               </div>
@@ -175,15 +197,20 @@
                   Feeling safe in a kennel
                 </h6>
                 <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Consequuntur aspernatur...
+                  Kennels are important to our pets. Travel and time alone are
+                  both easier with a strong association of safety with kennels.
+                  Avoid using kennels as a 'time-out spaces' because of the
+                  long-term difficulties it can introduce into your pet
+                  management plans.
                 </p>
                 <a href="#" class="card-link">Learn More</a>
               </div>
             </div>
           </div>
         </div>
+        <!-- End Column-->
       </div>
+      <!-- End Row-->
     </main>
     <footer class="footer light-blue mt-auto py-3">
       <%- include('partials/footer') %>
