@@ -77,7 +77,7 @@ exports.deleteUser = async (req, res) => {
     req.logout(() => {
       console.log('User has logged out.');
     });
-    await User.remove({ _id: req.params.id });
+    await User.deleteOne({ _id: req.params.id });
     res.redirect('/');
   } catch (error) {
     console.error(error);
