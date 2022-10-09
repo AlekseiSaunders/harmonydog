@@ -8,7 +8,7 @@ exports.getProfile = async (req, res) => {
   try {
     const user = await User.find({ user: req.user.id });
     const dogs = await Dog.find({ owner: req.user.id });
-    if (req.user.privileges === 'user') {
+    if (req.user.privileges === 'user' || req.user.privileges === 'demo') {
       res.render('profile', {
         user: req.user,
         privileges: req.user.privileges,
@@ -42,7 +42,7 @@ exports.getProfile = async (req, res) => {
 exports.getUserEdit = async (req, res) => {
   try {
     const user = await User.findById({ _id: req.params.id });
-    if (req.user.privileges === 'user') {
+    if (req.user.privileges === 'user' || req.user.privileges === 'demo') {
       res.render('editUser', {
         user: user,
         privileges: user.privileges,

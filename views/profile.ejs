@@ -50,14 +50,21 @@
                 action="/deleteUser/<%= user._id %>?_method=DELETE"
                 method="POST"
               >
+                <% if(user.privileges === 'demo') {%>
+                <button type="submit" class="btn btn-danger" disabled>
+                  Delete Account
+                </button>
+                <%}else{%>
                 <button type="submit" class="btn btn-danger">
                   Delete Account
                 </button>
+                <%}%>
               </form>
             </div>
           </div>
         </div>
       </div>
+      <!-- end Modal -->
       <div class="container">
         <h1 class="my-3">
           Profile Page:
@@ -65,6 +72,11 @@
             >Welcome <%=user.firstName%> <%=user.lastName%></span
           >
         </h1>
+        <%if(user.privileges === 'demo'){%>
+        <p class="text-warning bg-dark px-5 py-2">
+          Note: You are using a demo account so some functionality is disabled.
+        </p>
+        <%}%>
         <div class="row">
           <div class="col-12">
             <div class="card mb-4 border-primary">
@@ -82,7 +94,7 @@
                       <p>Street Address: <%=user.addressStreet%></p>
                       <p>City: <%=user.addressCity%></p>
                       <p>Zip Code: <%=user.addressZip%></p>
-                      <p>Phone #:<%=user.phone%></p>
+                      <p>Phone #: <%=user.phone%></p>
                     </div>
                   </div>
                 </div>
@@ -100,9 +112,18 @@
               </div>
               <div class="card-footer">
                 <h5>Add a pooch!</h5>
-                <a href="/dog/registerDog" class="btn text-dark light-blue"
-                  >Add</a
+                <% if(user.privileges === 'demo') {%>
+                <a
+                  href="/dog/registerDog"
+                  class="btn text-dark light-blue disabled"
                 >
+                  Add
+                </a>
+                <%}else{%>
+                <a href="/dog/registerDog" class="btn text-dark light-blue">
+                  Add
+                </a>
+                <%}%>
               </div>
             </div>
           </div>

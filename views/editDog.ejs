@@ -7,6 +7,11 @@
     <header><%- include('partials/header') %></header>
     <main class="container">
       <h1>Update <%=dog.name%>'s Records</h1>
+      <%if(user.privileges === 'demo'){%>
+      <p class="text-warning bg-dark px-5 py-2">
+        Note: You are using a demo account so some functionality is disabled.
+      </p>
+      <%}%>
       <div class="row justify-content-center">
         <!-- query ?_method=PUT added to invoke methodOverride and allow updating from form button -->
         <form
@@ -137,8 +142,14 @@
               with a new one.
             </h5>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <a class="btn btn-danger" href="/profile">Cancel</a>
+          <% if(user.privileges ==='demo'){%>
+          <button type="submit" class="btn btn-primary mb-3" disabled>
+            Submit
+          </button>
+          <%}else{%>
+          <button type="submit" class="btn btn-primary mb-3">Submit</button>
+          <%}%>
+          <a class="btn btn-danger mb-3" href="/profile">Cancel</a>
         </form>
       </div>
     </main>
