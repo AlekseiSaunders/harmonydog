@@ -46,7 +46,7 @@ const UserSchema = new mongoose.Schema({
   privileges: {
     type: String,
     default: 'user',
-    enum: ['user', 'admin', 'root'],
+    enum: ['demo', 'user', 'admin', 'root'],
   },
 });
 
