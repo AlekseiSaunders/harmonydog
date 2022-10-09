@@ -7,24 +7,28 @@
     <header><%- include('partials/header') %></header>
     <main class="container-fluid">
       <div class="row justify-content-between">
-        <h1 class="mt-2 mb-4 ml-5">Welcome to Harmony Dog</h1>
-        <form action="/login" method="POST">
-          <input
-            type="hidden"
-            id="userEmail"
-            name="userEmail"
-            value="bojangles@gmail.com"
-          />
-          <input
-            type="hidden"
-            name="password"
-            id="password"
-            value="hewilldanceforyou"
-          />
-          <button class="btn btn-outline-success my-3 mr-5" type="submit">
-            Look around with a demo account
-          </button>
-        </form>
+        <div class="col-12 col-md-7">
+          <h1 class="mt-2 mb-4 ml-5">Welcome to Harmony Dog</h1>
+        </div>
+        <div class="col-12 col-md-5 text-center">
+          <form action="/login" method="POST">
+            <input
+              type="hidden"
+              id="userEmail"
+              name="userEmail"
+              value="bojangles@gmail.com"
+            />
+            <input
+              type="hidden"
+              name="password"
+              id="password"
+              value="hewilldanceforyou"
+            />
+            <button class="btn btn-outline-success my-3 mr-5" type="submit">
+              Look around with a demo account
+            </button>
+          </form>
+        </div>
       </div>
       <div class="row justify-content-center justify-content-lg-center">
         <div class="col-10 col-lg-7 ml-5">
