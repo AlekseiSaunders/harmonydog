@@ -7,6 +7,7 @@
     <header><%- include('partials/header') %></header>
     <main class="container">
       <h1>Update <%=dog.name%>'s Records</h1>
+<!-- adds informational banner if user is in demo account-->
       <%if(user.privileges === 'demo'){%>
       <p class="text-warning bg-dark px-5 py-2">
         Note: You are using a demo account so some functionality is disabled.
@@ -142,6 +143,7 @@
               with a new one.
             </h5>
           </div>
+<!-- disabled the submit button if a user is in the demo account-->
           <% if(user.privileges ==='demo'){%>
           <button type="submit" class="btn btn-primary mb-3" disabled>
             Submit

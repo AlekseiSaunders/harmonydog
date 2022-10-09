@@ -48,6 +48,7 @@ app.set('view engine', 'ejs');
 
 // Enable session middleware to allow session use (must be declared above passport middleware)
 // store session data in mongo database
+// max age of session is 1 hour, user will be signed out after that amount of time
 app.use(
   session({
     secret: 'funny banana',

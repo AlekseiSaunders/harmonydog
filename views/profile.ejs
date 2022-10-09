@@ -50,6 +50,7 @@
                 action="/deleteUser/<%= user._id %>?_method=DELETE"
                 method="POST"
               >
+                <!-- disabled delete button if user is in demo account-->
                 <% if(user.privileges === 'demo') {%>
                 <button type="submit" class="btn btn-danger" disabled>
                   Delete Account

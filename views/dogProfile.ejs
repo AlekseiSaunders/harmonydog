@@ -50,6 +50,7 @@
                 action="/dog/delete/<%= dog.id %>?_method=DELETE"
                 method="POST"
               >
+<!-- disabled the delete button if a user is in the demo account-->
                 <% if(user.privileges === 'demo') {%>
                 <button type="submit" class="btn btn-danger" disabled>
                   Delete
@@ -65,6 +66,7 @@
       <!-- end Modal -->
       <div class="container">
         <h1 class="my-2"><%=dog.name%>'s Profile Page:</h1>
+<!-- added information banner to inform user they are in a demo account -->
         <%if(user.privileges === 'demo'){%>
         <p class="text-warning bg-dark px-5 py-2">
           Note: You are using a demo account so some functionality is disabled.
