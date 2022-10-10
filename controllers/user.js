@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const Dog = require('../models/Dog');
 const passport = require('passport');
+const Tip = require('../models/Tip');
 
 // checking user privileges, if they are user, display profile view
 // if they are admin or root, display dashboard view
@@ -17,6 +18,7 @@ exports.getProfile = async (req, res) => {
     } else {
       // using mongoDB aggregate to bring in dogs related to the user
       // add them to user document temporarily to combine documents for dashboard view
+      const tips = await Tip.find();
       const users = await User.aggregate([
         {
           $lookup: {
@@ -28,6 +30,7 @@ exports.getProfile = async (req, res) => {
         },
       ]);
       res.render('dashboard', {
+        tips: tips,
         user: req.user,
         users: users,
         privileges: req.user.privileges,
