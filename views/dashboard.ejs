@@ -13,11 +13,52 @@
             >Welcome <%=user.firstName%> <%=user.lastName%></span
           >
         </h1>
+        <div class="row rows-col-1 rows-col-md-2">
+					<div class="col-10 col-md-5 col-lg-4 mx-3">
+						<h3>Training tips</h3>
+					<% if(tips.length > 0){ %> 
+						<% for(let k = 0; k < tips.length; k++){ %> 
+							<div class="col-10 col-md-5 col-lg-4">
+            		<div class="card mb-3 border-success" style="width: 18rem" >
+              		<div class="card-body">
+										<img
+                			class="card-img"
+                			src="<%= tips[k].image %>"
+                			alt="<%= tips[k].title %>"
+              				/>
+                		<h5 class="card-title">
+                  		<%= tips[k].title%>
+                		</h5>
+                		<div class="card-text row">
+                  		<p class="col-sm">Email: <%= tips[k].body %></p>
+                		</div>
+                		<!-- if tip has tags, render them out-->
+                		<% if(tips[k].tags.length > 0){%> 
+											<% for(let j = 0; j <tips[k].tags.length; j++){%>
+                				<ul class="list-group">
+										  	<h5>Tags:</h5>
+                  				<li class="list-group-item">
+                      		<%=tips[k].tags[j]%>
+                  				</li>
+                				</ul>
+                			<%}%> 
+										<%}%>
+									</div>
+                	<div class="card-footer"></div>
+              	</div>
+            	</div>
+						<%}%>
+					<%} else {%>
+						<p>No Tips yet</p>
+					<%}%>
+						<h3>Add A Tip:</h3>
+							<a href="/admin/addTip" class="btn btn-primary mb-3">Add</a>
+					</div>
 
-        <div class="row rows-cols-1 rows-cols-md-2 g-4">
-          <% for(let i=0; i < users.length; i++){%>
-          <div class="col">
-            <div class="card mb-3 border-success" style="width: 18rem">
+					<div class="col-10 col-md-5 col-lg-4">
+						<h3>User Records:</h3>
+          <% for(let i=0; i < users.length; i++){%> 
+            <div class="card mb-3 border-success" style="width: 18rem" >
               <div class="card-body">
                 <h5 class="card-title">
                   <%= users[i].firstName%> <%=users[i].lastName%>
@@ -26,24 +67,24 @@
                   <p class="col-sm">Email: <%= users[i].email %></p>
                 </div>
                 <!-- if user has pets, render them out-->
-                <% if(users[i].pets.length > 0){%> <% for(let j = 0; j <
-                users[i].pets.length; j++){%>
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    Pet:
-                    <a href="/dog/<%=users[i].pets[j]._id%>">
-                      <%=users[i].pets[j].name%>
-                    </a>
-                  </li>
-                </ul>
-                <%}%> <%}%>
+                <% if(users[i].pets.length > 0){%> 
+									<% for(let j = 0; j <users[i].pets.length; j++){%>
+                		<ul class="list-group">
+                  		<li class="list-group-item">
+                    		Pet:
+                    		<a href="/dog/<%=users[i].pets[j]._id%>">
+                      	<%=users[i].pets[j].name%>
+                    		</a>
+                  		</li>
+                		</ul>
+                	<%}%> 
+								<%}%>
+							</div>
                 <div class="card-footer"></div>
-                <div class="row"></div>
-              </div>
-            </div>
-          </div>
-          <%}%>
-        </div>
+            	</div>
+          <%}%> 
+					</div> <!-- end row -->
+        </div> <!-- end container-->
       </div>
     </main>
     <footer class="footer light-blue mt-auto py-3">
