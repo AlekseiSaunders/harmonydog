@@ -1,9 +1,31 @@
-exports.getIndex = (req, res) => {
-  if (!req.user) {
-    let privileges = 'user';
-    res.render('index', { user: req.user, privileges });
-  } else {
-    res.render('index', { user: req.user, privileges: req.user.privileges });
+const Tip = require('../models/Tip');
+
+exports.getIndex = async (req, res) => {
+  try {
+    const tips = await Tip.find();
+    let tipsToDisplay = [];
+    do {
+      let rand = Math.floor(Math.random() * tips.length);
+      if (tipsToDisplay.indexOf(tips[rand]) == -1) {
+        tipsToDisplay.push(tips[rand]);
+      }
+    } while (tipsToDisplay.length < 3);
+    if (!req.user) {
+      let privileges = 'user';
+      res.render('index', {
+        tips: tipsToDisplay,
+        user: req.user,
+        privileges,
+      });
+    } else {
+      res.render('index', {
+        tips: tipsToDisplay,
+        user: req.user,
+        privileges: req.user.privileges,
+      });
+    }
+  } catch (error) {
+    console.error(error);
   }
 };
 
