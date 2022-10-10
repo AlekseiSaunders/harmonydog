@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="h-100" lang="en">
+  <head>
+    <%- include('partials/head') %>
+  </head>
+  <body class="d-flex flex-column h-100">
+    <header><%- include('partials/header') %></header>
+
+    <main class="container">
+      <h1 class="my-3">Add a Tip</h1>
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <form
+            action="/admin/addTip"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="mb-3">
+              <label for="title" class="form-label">Tip Title: </label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <h5><label for="body" class="form-label">Tip Text</label></h5>
+              <textarea id="body" name="body" cols="70" rows="5"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="tags" class="form-label">Tags</label>
+              <input type="text" id="tags" name="tags" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <h5>Image Upload - Add an image for this tip (Not Required)</h5>
+              <input
+                type="file"
+                class="form-control"
+                id="imageUpload"
+                name="file"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Add Tip</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer class="footer light-blue mt-auto py-3">
+      <%- include('partials/footer') %>
+    </footer>
+    <%- include('partials/scripts') %>
+  </body>
+</html>
