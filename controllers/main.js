@@ -4,11 +4,15 @@ exports.getIndex = async (req, res) => {
   try {
     const tips = await Tip.find();
     let tipsToDisplay = [];
+// generate random number and use to select tip from all tips returned from DB find
+// if tip has not already been selected, push to tipsToDisplay array, 
+// if already selected, find another.
     do {
       let rand = Math.floor(Math.random() * tips.length);
       if (tipsToDisplay.indexOf(tips[rand]) == -1) {
         tipsToDisplay.push(tips[rand]);
       }
+// continue until three tips from tips returned from DB are selected
     } while (tipsToDisplay.length < 3);
     if (!req.user) {
       let privileges = 'user';
